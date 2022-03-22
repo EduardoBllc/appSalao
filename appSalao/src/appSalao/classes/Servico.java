@@ -1,10 +1,10 @@
 package appSalao.classes;
 
-public class Servicos {
+public class Servico {
 	private float valor;
 	private int tipo;
 	
-	public Servicos(float valor,int qtd) {
+	public Servico(float valor,int qtd) {
 		this.valor = valor;		
 	}
 	

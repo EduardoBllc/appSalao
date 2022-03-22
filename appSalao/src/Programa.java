@@ -1,11 +1,10 @@
-import appSalao.classes.Profissionais;
+import appSalao.classes.Profissional;
 
 public class Programa {
 
 	public static void main(String[] args) {
 		
-		Profissionais p1 = new Profissionais("Juliano", 2);
-		p1.imprimeServicos();
+		Profissional p1 = new Profissional("Duda", 5);
 	}
 
 }
