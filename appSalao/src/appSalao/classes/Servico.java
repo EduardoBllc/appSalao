@@ -1,11 +1,12 @@
-package appSalao.classes;
+ package appSalao.classes;
 
 public class Servico {
+	private String nome;
 	private float valor;
 	private int tipo;
 	
-	public Servico(float valor,int qtd) {
-		this.valor = valor;		
+	public Servico() {
+		
 	}
 	
 	public void mudarValor(float valor) {
