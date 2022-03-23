@@ -5,33 +5,31 @@ public class Cliente {
 	private int telefone;
 	private int cpf;
 	
+	
+	//Getters
 	public String getNome() {
 		return this.nome;
 	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
 	public int getTelefone() {
 		return this.telefone;
 	}
-	
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
-	}
-	
 	public int getCPF() {
 		return this.cpf;
 	}
 	
+	//Setters
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public void setTelefone(int telefone) {
+		this.telefone = telefone;
+	}
 	public void setCPF(int cpf) {
 		this.cpf = cpf;
 	}
 	
-	public Cliente(String nome, int telefone) {
+	//Construtor
+	public Cliente(String nome) {
 		this.nome = nome;
-		this.telefone = telefone;
 	}
-	
 }

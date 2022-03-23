@@ -5,7 +5,7 @@ public class Servico {
 	private float valor;
 	private int tipo;
 	
-	public Servico() {
+	public Servico(String nome) {
 		
 	}
 	
