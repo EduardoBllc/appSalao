@@ -16,6 +16,18 @@ public class Main {
 		//Criando os profissionais
 		Profissional p1 = new Profissional("Duda");
 		
+		//Adicionando os serviços para o profissional
+		p1.addServico(0);
+		p1.addServico(1);
+		p1.addServico(2);
+		p1.addServico(3);
+		p1.addServico(4);
+		
+		//Imprimindo os serviços que o profissional presta
+		p1.imprimeServicos();
+		
+		System.out.println("");
+			
 		//Criando os serviços
 		Servico s1 = new Servico("Design de sombrancelha");
 		
@@ -30,7 +42,7 @@ public class Main {
 		
 		Scanner teclado = new Scanner(System.in);
 		
-		//Criando o cliente
+		//Criando o cliente		
 		System.out.println("Digite o nome da Cliente: ");
 		String nome = teclado.next();	
 		Cliente cli = new Cliente(nome);
@@ -38,9 +50,10 @@ public class Main {
 		//Criando o atendimento com o cliente
 		Atendimento atend = new Atendimento(cli,pro,serv);
 		
+		teclado.close();
+		
 		//Retornando o atendimento
 		return atend;
-		
 	}
 	
 	//Método para imprimir atendimento

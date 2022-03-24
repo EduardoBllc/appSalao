@@ -1,19 +1,16 @@
 package appSalao.classes;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 /*
 00 Design
 01 Cílios
 02 Make
 03 Buço
 04 Cabelo colorido
-05 Penteado
+05 Pintura
 06 Micro
 07 Escova
 08 Mechas
-09 Pintura
+09 Penteado
 10 Micropigmentação
 11 Botox
 12 Corte
@@ -21,6 +18,25 @@ import java.util.Scanner;
 
 public class Profissional {
 	protected boolean servicos[] = new boolean[13];
+	protected String servicosNome[] = new String [servicos.length];
+	
+	
+	{//Array de nome de serviços
+		servicosNome[0] = "Design de sombrancelha";
+		servicosNome[1] = "Cílios";
+		servicosNome[2] = "Make";
+		servicosNome[3] = "Buço";
+		servicosNome[4] = "Cabelo colorido";
+		servicosNome[5] = "Pintura";
+		servicosNome[6] = "Micro";
+		servicosNome[7] = "Escova";
+		servicosNome[8] = "Mechas";
+		servicosNome[9] = "Penteado";
+		servicosNome[10] = "Micropigmentação";
+		servicosNome[11] = "Botox";
+		servicosNome[12] = "Corte";
+	}
+	
 	private String nome;
 
 	public Profissional(String nome) {
@@ -53,9 +69,19 @@ public class Profissional {
 	}
 	
 	//Métodos
+	public void addServico(int cod) {
+		//Habilitando o serviço
+		servicos[cod] = true;
+
+	}
+	
 	public void imprimeServicos() {
+		System.out.println("Serviços prestados:");
+		//Imprimindo cada serviço usando o indice da bool array na array de nomes
 		for(int i = 0; i < servicos.length; i ++) {
-			System.out.println("servicos[" + i + "] = " + servicos[i] );
+			if(servicos[i]) {
+				System.out.println(servicosNome[i] );
+			}
 		}
 	}
 }
