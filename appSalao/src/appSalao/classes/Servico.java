@@ -3,18 +3,26 @@
 public class Servico {
 	private String nome;
 	private float valor;
-	private int tipo;
 	
-	public Servico(String nome) {
-		
+	//Getters
+	public String getNome() {
+		return this.nome;
+	}
+	public float getValor() {
+		return this.valor;
 	}
 	
-	public void mudarValor(float valor) {
+	//Setters
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 	
-	public float getValor() {
-		return this.valor;
+	//Construtor
+	public Servico(String nome) {
+		this.nome = nome;
 	}
 	
 	//se servicos[tipo] = true, profissional faz parte da array de habilitados

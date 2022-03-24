@@ -23,21 +23,20 @@ public class Profissional {
 	protected boolean servicos[] = new boolean[13];
 	private String nome;
 
-	public Profissional(String nome, int qtd) {
-		Scanner teclado = new Scanner(System.in);
-		this.nome = nome;
+	public Profissional(String nome) {
 		
+		this.nome = nome;
+		/*Scanner teclado = new Scanner(System.in);
 		//Definir array de ints com a quantidade de serviços prestados e seus números
 		int set_servicos[] = new int[qtd];
 		
 		System.out.println("Digite os código de serviço: ");
 		for(int i = 0; i < set_servicos.length;i ++) {
 			//Usando os elementos da array de ints dos serviços como indice para validar na array de serviços
-			set_servicos[i] = teclado.nextInt();			
+			set_servicos[i] = Integer.parseInt(teclado.nextLine());			
 			servicos[set_servicos[i]] = true;
 		}
-		
-		teclado.close();
+		teclado.close();*/
 	}
 	
 	//Getters
@@ -53,6 +52,7 @@ public class Profissional {
 		this.nome = nome;
 	}
 	
+	//Métodos
 	public void imprimeServicos() {
 		for(int i = 0; i < servicos.length; i ++) {
 			System.out.println("servicos[" + i + "] = " + servicos[i] );
