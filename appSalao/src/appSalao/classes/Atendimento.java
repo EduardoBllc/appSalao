@@ -4,6 +4,7 @@ public class Atendimento {
 	private Cliente cli;
 	private Profissional pro;
 	private Servico serv;
+	private Produto prod;
 	private float valor;
 	
 	//Construtor
@@ -24,7 +25,10 @@ public class Atendimento {
 		return this.serv;
 	}
 	public float getValor() {
-		return valor;
+		return this.valor;
+	}
+	public Produto getProduto() {
+		return this.prod;
 	}
 	
 	//Setters
@@ -39,5 +43,8 @@ public class Atendimento {
 	}
 	public void setValor(float valor) {
 		this.valor = valor;
-	}	
+	}
+	public void setProduto(Produto prod) {
+		this.prod = prod;
+	}
 }
