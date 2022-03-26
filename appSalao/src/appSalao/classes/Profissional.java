@@ -2,8 +2,10 @@ package appSalao.classes;
 
 public class Profissional {
 	private String nome;
-	protected boolean servicos[] = new boolean[13];
-	protected String servicosNome[] = new String [servicos.length];
+	private float ganhos;
+	private boolean servicos[] = new boolean[13];
+	private String servicosNome[] = new String [servicos.length];
+	
 	
 	{//Array de nome de serviços
 		servicosNome[0] = "Design de sombrancelha";
@@ -33,6 +35,10 @@ public class Profissional {
 	public boolean getServicos(int i) {
 		return this.servicos[i];
 	}
+	public float getFaturamento() {
+		return this.ganhos;
+	}
+	
 	
 	//Setters
 	public void setNome(String nome) {

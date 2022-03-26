@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import appSalao.classes.Atendimento;
 import appSalao.classes.Cliente;
+import appSalao.classes.PrestServico;
 import appSalao.classes.Produto;
 import appSalao.classes.Profissional;
 import appSalao.classes.Servico;
@@ -40,7 +41,7 @@ public class Main {
 		atendimentos.add(novoAtendimento());
 		
 		//Printando o atendimento
-		printAtendimento(0);
+		printAtendimento(0,0);
 		System.out.println("");
 		
 		//adicionando o produto
@@ -53,7 +54,7 @@ public class Main {
 		//Iniciando variáveis necessárias
 		Scanner teclado = new Scanner(System.in);
 		int indice;
-		Servico serv;
+		PrestServico prest_serv;
 		Profissional pro;
 		
 		//Criando o cliente		
@@ -64,15 +65,17 @@ public class Main {
 		//Definindo o serviço
 		System.out.println("Defina o serviço: ");
 		indice = teclado.nextInt();
-		serv = servicos.get(indice);
+		Servico serv = servicos.get(indice);
 		
 		//Definindo o profissional
 		System.out.println("Defina o profissinal");
 		indice = teclado.nextInt();
 		pro = profissionais.get(indice);
 		
+		prest_serv = new PrestServico(serv,pro);
+		
 		//Criando o atendimento com o cliente
-		Atendimento atend = new Atendimento(cli,serv,pro);
+		Atendimento atend = new Atendimento(cli,prest_serv);
 		
 		teclado.close();
 		
@@ -81,10 +84,10 @@ public class Main {
 	}
 	
 	//Método para imprimir atendimento
-	public static void printAtendimento(int indice) {
+	public static void printAtendimento(int indice, int indice2) {
 
 		System.out.println("Cliente: "  + atendimentos.get(indice).getCli().getNome());
-		System.out.println("Profissional: " + atendimentos.get(indice).getPro().getNome());
-		System.out.println("Serviço: " + atendimentos.get(indice).getServ().getNome());
+		System.out.println("Profissional: " + atendimentos.get(indice).getPrestServ(indice2).getProfissional().getNome());
+		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
 	}
 }

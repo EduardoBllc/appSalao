@@ -1,26 +1,25 @@
 package appSalao.classes;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Atendimento {
 	private Cliente cli;
-	private Servico serv;
-	private Profissional pro;
+	private ArrayList<PrestServico> prest_servs = new ArrayList<>();;
 	private LinkedList<Produto> produtos = new LinkedList<>();
 	
 	//Construtor
-	public Atendimento(Cliente cli, Servico serv, Profissional pro) {
+	public Atendimento(Cliente cli, PrestServico prest_serv) {
 		this.cli = cli;
-		this.serv = serv;
-		this.pro = pro;
+		this.prest_servs.add(prest_serv);
 	}
 	
 	//Getters
 	public Cliente getCli() {
 		return this.cli;
 	}
-	public Servico getServ() {
-		return this.serv;
+	public PrestServico getPrestServ(int indice) {
+		return this.prest_servs.get(indice);
 	}
 	public Produto getProduto(int indice) {
 		return this.produtos.get(indice);
@@ -28,21 +27,14 @@ public class Atendimento {
 	public LinkedList<Produto> getAllProdutos() {
 		return this.produtos;
 	}
-	public Profissional getPro() {
-		return pro;
-	}
 	
 	//Setters
 	public void setCli(Cliente cli) {
 		this.cli = cli;
 	}
-	public void setServ(Servico serv) {
-		this.serv = serv;
-	}
-	public void setPro(Profissional pro) {
-		this.pro = pro;
-	}
-	
+	public void setPrestServ(PrestServico prest_serv) {
+		this.prest_servs.add(prest_serv);
+	}	
 	
 	//Métodos
 	//Adicionar produtos ao atendimento
@@ -53,8 +45,18 @@ public class Atendimento {
 	
 	//Remover produtos do atendimento
 	public void remProduto(int indice) {
+		System.out.println("O produto \"" + produtos.get(indice).getNome() + "\" foi removido ao atendimento de " + this.cli.getNome());
 		this.produtos.remove(indice);
-		System.out.println("O produto \"" + produtos.get(indice).getNome() + "\" foi adicionado ao atendimento de " + this.cli.getNome());
+	}
+	
+	public void addPrestServ(PrestServico prest_serv) {
+		this.prest_servs.add(prest_serv);
+		System.out.println("O serviço \"" + prest_serv.getServico().getNome() + "\" foi adicionado ao atendimento de " + this.cli.getNome());
+	}
+	
+	public void remPrestServ(int indice) {
+		System.out.println("O serviço \"" + prest_servs.get(indice).getServico().getNome() + "\" foi removido ao atendimento de " + this.cli.getNome());
+		this.produtos.remove(indice);
 	}
 
 }
