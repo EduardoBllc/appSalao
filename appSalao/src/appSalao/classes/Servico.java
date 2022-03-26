@@ -4,6 +4,7 @@ public class Servico {
 	private String nome;
 	private float valor;
 	
+	
 	//Getters
 	public String getNome() {
 		return this.nome;
@@ -24,6 +25,4 @@ public class Servico {
 	public Servico(String nome) {
 		this.nome = nome;
 	}
-	
-	//se servicos[tipo] = true, profissional faz parte da array de habilitados
 }
