@@ -17,23 +17,27 @@ public class Main {
 	
 	public static void main(String[] args) {
 			
-		//Criando os profissionais
-		novoProfissional("Duda",01234);
-		novoProfissional("Aline",12609);
+		//Criando os profissionais 
+		novoProfissional("Duda");//0
+		novoProfissional("Aline");//1
+		novoProfissional("Gabi");//2
+		novoProfissional("Geovana");//3
+		novoProfissional("Vaninha");//4
 
-		//Criando um produto
-		Produto prod1 = new Produto("Perfume", 60);
-			
-		//Criando os serviços e adicionando na Array List
+		//Criando os serviços
 		novoServico("Design de sombrancelha");//0
 		novoServico("Extensão de cílios");//1
 		novoServico("Make");//2
 		novoServico("Buço");//3
 		novoServico("Cabelo colorido");//4
 		
+		//Criando os produto
+		Produto prod1 = new Produto("Perfume", 60);
+		Produto prod2 = new Produto("Blusa", 90);
+		Produto prod3 = new Produto("Calça", 150);
 		
 		//Adicionando o novo atendimento à lista de atendimentos
-		atendimentos.add(novoAtendimento());
+		novoAtendimento();
 		
 		//Printando o atendimento
 		printAtendimento(0,0);
@@ -47,7 +51,7 @@ public class Main {
 	//Métodos
 	
 	//Método criação atendimento
-	public static Atendimento novoAtendimento() {
+	public static void novoAtendimento() {
 		
 		Scanner teclado = new Scanner(System.in);
 		
@@ -69,15 +73,28 @@ public class Main {
 		//Declarando uma prestação de serviço
 		PrestServico prest_serv = new PrestServico(serv,pro);
 		
-		//Criando o atendimento com o cliente
-		Atendimento atend = new Atendimento(cli,prest_serv);
+		//Criando o atendimento com o cliente a prestação de serviço no arraylist
+		Atendimento atend = new Atendimento(cli,prest_serv);	
+		atendimentos.add(atend);
 		
 		teclado.close();
-		
-		//Retornando o atendimento
-		return atend;
+
 	}
 	
+	//Criação de profissionais na arraylist
+	public static void novoProfissional(String nome) {
+		//Criando um profissional e adicionando na arraylist
+		Profissional p = new Profissional(nome);
+		profissionais.add(p);
+	}
+
+	//Criação de Serviço na arraylist
+	public static void novoServico(String nome) {
+		//Criando o serviço e adicionando na arraylist
+		Servico s = new Servico(nome);
+		servicos.add(s);
+	}
+		
 	//Método para imprimir atendimento
 	public static void printAtendimento(int indice, int indice2) {
 
@@ -86,21 +103,5 @@ public class Main {
 		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
 	}
 	
-	//Método de criação e adição de profissional no array list
-	public static void novoProfissional(String nome, int cod) {
-		//Criando um profissional
-		Profissional p = new Profissional(nome);
-		//Transformando a int cod em uma string e depois usando ela como um char array em um foreach para transformar cada caractere em um código separado
-		for(char num: String.valueOf(cod).toCharArray()) {
-			//Transformando o char num do laço foreach em uma string para poder transformá-lo em uma int e passando para o método addServico como um índice
-			p.addServico(Integer.parseInt(String.valueOf(num)));
-		}
-		//Adicionando profissional na arraylist
-		profissionais.add(p);
-	}
-
-	public static void novoServico(String nome) {
-		Servico s = new Servico(nome);
-		servicos.add(s);
-	}
+	
 }
