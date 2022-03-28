@@ -17,8 +17,8 @@ public class Profissional {
 		servicosNome[6] = "Micro";
 		servicosNome[7] = "Escova";
 		servicosNome[8] = "Mechas";
-		servicosNome[9] = "Penteado";
-		servicosNome[10] = "Micropigmentação";
+		servicosNome[9] = "Micropigmentação";
+		servicosNome[10] = "Penteado";
 		servicosNome[11] = "Botox";
 		servicosNome[12] = "Corte";
 	}

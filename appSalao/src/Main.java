@@ -18,24 +18,19 @@ public class Main {
 	public static void main(String[] args) {
 			
 		//Criando os profissionais
-		Profissional p1 = new Profissional("Duda");
+		novoProfissional("Duda",01234);
+		novoProfissional("Aline",12609);
 
-		//Adicionando os serviços para o profissional
-		p1.addServico(0);
-		p1.addServico(1);
-		p1.addServico(2);
-		p1.addServico(3);
-		p1.addServico(4);
-		
-		//Adicionando o profissional na ArrayList
-		profissionais.add(p1);
-		
 		//Criando um produto
 		Produto prod1 = new Produto("Perfume", 60);
 			
 		//Criando os serviços e adicionando na Array List
-		Servico s1 = new Servico("Design de sombrancelha");
-		servicos.add(s1);
+		novoServico("Design de sombrancelha");//0
+		novoServico("Extensão de cílios");//1
+		novoServico("Make");//2
+		novoServico("Buço");//3
+		novoServico("Cabelo colorido");//4
+		
 		
 		//Adicionando o novo atendimento à lista de atendimentos
 		atendimentos.add(novoAtendimento());
@@ -48,14 +43,13 @@ public class Main {
 		atendimentos.get(0).addProduto(prod1);
 	}
 	
+	
+	//Métodos
+	
 	//Método criação atendimento
 	public static Atendimento novoAtendimento() {
 		
-		//Iniciando variáveis necessárias
 		Scanner teclado = new Scanner(System.in);
-		int indice;
-		PrestServico prest_serv;
-		Profissional pro;
 		
 		//Criando o cliente		
 		System.out.println("Digite o nome da Cliente: ");
@@ -64,15 +58,16 @@ public class Main {
 		
 		//Definindo o serviço
 		System.out.println("Defina o serviço: ");
-		indice = teclado.nextInt();
+		int indice = teclado.nextInt();
 		Servico serv = servicos.get(indice);
 		
 		//Definindo o profissional
 		System.out.println("Defina o profissinal");
 		indice = teclado.nextInt();
-		pro = profissionais.get(indice);
+		Profissional  pro = profissionais.get(indice);
 		
-		prest_serv = new PrestServico(serv,pro);
+		//Declarando uma prestação de serviço
+		PrestServico prest_serv = new PrestServico(serv,pro);
 		
 		//Criando o atendimento com o cliente
 		Atendimento atend = new Atendimento(cli,prest_serv);
@@ -89,5 +84,23 @@ public class Main {
 		System.out.println("Cliente: "  + atendimentos.get(indice).getCli().getNome());
 		System.out.println("Profissional: " + atendimentos.get(indice).getPrestServ(indice2).getProfissional().getNome());
 		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
+	}
+	
+	//Método de criação e adição de profissional no array list
+	public static void novoProfissional(String nome, int cod) {
+		//Criando um profissional
+		Profissional p = new Profissional(nome);
+		//Transformando a int cod em uma string e depois usando ela como um char array em um foreach para transformar cada caractere em um código separado
+		for(char num: String.valueOf(cod).toCharArray()) {
+			//Transformando o char num do laço foreach em uma string para poder transformá-lo em uma int e passando para o método addServico como um índice
+			p.addServico(Integer.parseInt(String.valueOf(num)));
+		}
+		//Adicionando profissional na arraylist
+		profissionais.add(p);
+	}
+
+	public static void novoServico(String nome) {
+		Servico s = new Servico(nome);
+		servicos.add(s);
 	}
 }
