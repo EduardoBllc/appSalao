@@ -30,6 +30,10 @@ public class Main {
 		novoServico("Make");//2
 		novoServico("Buço");//3
 		novoServico("Cabelo colorido");//4
+		novoServico("Escova");//5
+		novoServico("Corte");//6
+		novoServico("Micropigmentação");//7
+		
 		
 		//Criando os produto
 		Produto prod1 = new Produto("Perfume", 60);
@@ -102,6 +106,9 @@ public class Main {
 		System.out.println("Profissional: " + atendimentos.get(indice).getPrestServ(indice2).getProfissional().getNome());
 		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
 	}
-	
-	
+
+	public static void fecharAtendimento(int indice) {
+		
+		atendimentos.remove(indice);
+	}
 }

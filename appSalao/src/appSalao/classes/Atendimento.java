@@ -24,9 +24,9 @@ public class Atendimento {
 	public Produto getProduto(int indice) {
 		return this.produtos.get(indice);
 	}
-	public LinkedList<Produto> getAllProdutos() {
-		return this.produtos;
-	}
+//	public LinkedList<Produto> getAllProdutos() {
+//		return this.produtos;
+//	}
 	
 	//Setters
 	public void setCli(Cliente cli) {
@@ -59,4 +59,5 @@ public class Atendimento {
 		this.produtos.remove(indice);
 	}
 
+	
 }
