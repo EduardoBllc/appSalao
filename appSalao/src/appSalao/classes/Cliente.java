@@ -1,15 +1,12 @@
 package appSalao.classes;
 
-public class Cliente {
+public class Cliente extends Pessoa{
 	private String nome;
 	private int telefone;
 	private int cpf;
 	
 	
 	//Getters
-	public String getNome() {
-		return this.nome;
-	}
 	public int getTelefone() {
 		return this.telefone;
 	}
@@ -18,9 +15,6 @@ public class Cliente {
 	}
 	
 	//Setters
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
@@ -30,6 +24,6 @@ public class Cliente {
 	
 	//Construtor
 	public Cliente(String nome) {
-		this.nome = nome;
+		super(nome);
 	}
 }

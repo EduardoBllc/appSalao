@@ -1,7 +1,6 @@
 package appSalao.classes;
 
-public class Profissional {
-	private String nome;
+public class Profissional extends Pessoa{
 	private float ganhos;
 	private boolean servicos[] = new boolean[13];
 	private String servicosNome[] = new String [servicos.length];
@@ -25,25 +24,19 @@ public class Profissional {
 
 	//Construtor
 	public Profissional(String nome) {
-		this.nome = nome;
+		super(nome);
 	}
 	
 	//Getters
-	public String getNome() {
-		return this.nome;
-	}	
 	public boolean getServicos(int i) {
 		return this.servicos[i];
 	}
-	public float getFaturamento() {
+	public float getGanhos() {
 		return this.ganhos;
 	}
 	
 	
 	//Setters
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	
 	//Métodos
 	public void addServico(int cod) {

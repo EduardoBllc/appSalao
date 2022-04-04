@@ -4,7 +4,6 @@ import java.util.Scanner;
 import appSalao.classes.Atendimento;
 import appSalao.classes.Cliente;
 import appSalao.classes.PrestServico;
-import appSalao.classes.Produto;
 import appSalao.classes.Profissional;
 import appSalao.classes.Servico;
 
@@ -36,9 +35,9 @@ public class Main {
 		
 		
 		//Criando os produto
-		Produto prod1 = new Produto("Perfume", 60);
-		Produto prod2 = new Produto("Blusa", 90);
-		Produto prod3 = new Produto("Calça", 150);
+//		Produto prod1 = new Produto("Perfume", 60);
+//		Produto prod2 = new Produto("Blusa", 90);
+//		Produto prod3 = new Produto("Calça", 150);
 		
 		//Adicionando o novo atendimento à lista de atendimentos
 		novoAtendimento();
@@ -48,7 +47,7 @@ public class Main {
 		System.out.println("");
 		
 		//adicionando o produto
-		atendimentos.get(0).addProduto(prod1);
+//		atendimentos.get(0).addProduto(prod1);
 	}
 	
 	

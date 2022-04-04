@@ -21,8 +21,7 @@ public class Produto {
 	}
 
 	//Construtor
-	public Produto(String nome, float valor) {
+	public Produto(String nome) {
 		this.nome = nome;
-		this.valor = valor;
 	}
 }
