@@ -1,8 +1,8 @@
 package appSalao.classes;
 
 public class Produto {
-	String nome;
-	float valor;
+	private String nome;
+	private float valor;
 	
 	//Getters
 	public String getNome() {
@@ -23,5 +23,9 @@ public class Produto {
 	//Construtor
 	public Produto(String nome) {
 		this.nome = nome;
+	}
+	public Produto(String nome, float valor) {
+		this.nome = nome;
+		this.valor = valor;
 	}
 }

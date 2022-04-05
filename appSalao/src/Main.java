@@ -10,6 +10,7 @@ import appSalao.classes.Servico;
 public class Main {
 	
 	//Criando uma lista de atendimentos de tamanho variável
+	static float faturamento;
 	static ArrayList<Atendimento> atendimentos = new ArrayList<>();
 	static ArrayList<Profissional> profissionais = new ArrayList<>();
 	static ArrayList<Servico> servicos = new ArrayList<>();
@@ -17,27 +18,21 @@ public class Main {
 	public static void main(String[] args) {
 			
 		//Criando os profissionais 
-		novoProfissional("Duda");//0
-		novoProfissional("Aline");//1
-		novoProfissional("Gabi");//2
-		novoProfissional("Geovana");//3
-		novoProfissional("Vaninha");//4
+		novoProfissional("Duda",3);//0
+		novoProfissional("Aline",1);//1
+		novoProfissional("Gabi",2);//2
+		novoProfissional("Geovana",2);//3
+		novoProfissional("Vaninha",3);//4
 
 		//Criando os serviços
-		novoServico("Design de sombrancelha");//0
-		novoServico("Extensão de cílios");//1
-		novoServico("Make");//2
-		novoServico("Buço");//3
+		novoServico("Design de sombrancelha",30);//0
+		novoServico("Extensão de cílios",150);//1
+		novoServico("Make",90);//2
+		novoServico("Buço",30);//3
 		novoServico("Cabelo colorido");//4
 		novoServico("Escova");//5
 		novoServico("Corte");//6
 		novoServico("Micropigmentação");//7
-		
-		
-		//Criando os produto
-//		Produto prod1 = new Produto("Perfume", 60);
-//		Produto prod2 = new Produto("Blusa", 90);
-//		Produto prod3 = new Produto("Calça", 150);
 		
 		//Adicionando o novo atendimento à lista de atendimentos
 		novoAtendimento();
@@ -46,8 +41,8 @@ public class Main {
 		printAtendimento(0,0);
 		System.out.println("");
 		
-		//adicionando o produto
-//		atendimentos.get(0).addProduto(prod1);
+		fecharAtendimento(0,0);
+		System.out.println("Os ganhos de " + profissionais.get(0) + " são R$" + profissionais.get(0).getGanhos()) ;
 	}
 	
 	
@@ -85,9 +80,9 @@ public class Main {
 	}
 	
 	//Criação de profissionais na arraylist
-	public static void novoProfissional(String nome) {
+	public static void novoProfissional(String nome, int div) {
 		//Criando um profissional e adicionando na arraylist
-		Profissional p = new Profissional(nome);
+		Profissional p = new Profissional(nome, div);
 		profissionais.add(p);
 	}
 
@@ -95,6 +90,11 @@ public class Main {
 	public static void novoServico(String nome) {
 		//Criando o serviço e adicionando na arraylist
 		Servico s = new Servico(nome);
+		servicos.add(s);
+	}
+	public static void novoServico(String nome, float valor) {
+		//Criando o serviço e adicionando na arraylist
+		Servico s = new Servico(nome, valor);
 		servicos.add(s);
 	}
 		
@@ -106,8 +106,12 @@ public class Main {
 		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
 	}
 
-	public static void fecharAtendimento(int indice) {
-		
+	//Método para fechar atendimento
+	public static void fecharAtendimento(int indice, int indice2) {
+		//Adicionando o valor na conta 
+		atendimentos.get(indice).getPrestServ(indice2).getProfissional().addFaturamento(atendimentos.get(indice).getPrestServ(indice2).getValor());
+		System.out.println("Atendimento de " + atendimentos.get(indice).getCli() + " foi finalizado.");
+		//Removendo o atendimento do ArrayList
 		atendimentos.remove(indice);
 	}
 }

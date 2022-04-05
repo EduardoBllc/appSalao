@@ -1,10 +1,8 @@
 package appSalao.classes;
 
 public class Cliente extends Pessoa{
-	private String nome;
 	private int telefone;
 	private int cpf;
-	
 	
 	//Getters
 	public int getTelefone() {

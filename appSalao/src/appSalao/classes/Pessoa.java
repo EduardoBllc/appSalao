@@ -17,4 +17,11 @@ public String getNome() {
 public void setNome(String nome) {
 	this.nome = nome;
 	}
+
+//Métodos
+public String toString() {
+	return this.nome;
+	}
+
 }
+

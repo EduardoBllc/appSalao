@@ -1,10 +1,11 @@
 package appSalao.classes;
 
 public class Profissional extends Pessoa{
-	private float ganhos;
+	private int div;
+	private float faturamento;
 	private boolean servicos[] = new boolean[13];
 	private String servicosNome[] = new String [servicos.length];
-	
+
 	
 	{//Array de nome de serviços
 		servicosNome[0] = "Design de sombrancelha";
@@ -23,8 +24,9 @@ public class Profissional extends Pessoa{
 	}
 
 	//Construtor
-	public Profissional(String nome) {
+	public Profissional(String nome, int div) {
 		super(nome);
+		this.div = div;
 	}
 	
 	//Getters
@@ -32,11 +34,17 @@ public class Profissional extends Pessoa{
 		return this.servicos[i];
 	}
 	public float getGanhos() {
-		return this.ganhos;
+		return (this.faturamento/div);
+	}
+	public float getFaturamento() {
+		return this.faturamento;
 	}
 	
 	
 	//Setters
+	public void addFaturamento(float valor) {
+		this.faturamento += valor;
+	}
 	
 	//Métodos
 	public void addServico(int cod) {
