@@ -24,9 +24,18 @@ public class Atendimento {
 	public Produto getProduto(int indice) {
 		return this.produtos.get(indice);
 	}
-//	public LinkedList<Produto> getAllProdutos() {
-//		return this.produtos;
-//	}
+	public String getNomeCliente() {
+		return this.cli.getNome();
+	}
+	public String getNomeProfissional(int indice) {
+		return this.prest_servs.get(indice).pro.getNome();
+	}
+	public float getValor(int indice) {
+		return this.prest_servs.get(indice).getValor();
+	}
+	public Profissional getProfissional(int indice) {
+		return this.prest_servs.get(indice).getProfissional();
+	}
 	
 	//Setters
 	public void setCli(Cliente cli) {

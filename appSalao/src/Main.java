@@ -109,7 +109,8 @@ public class Main {
 	//Método para fechar atendimento
 	public static void fecharAtendimento(int indice, int indice2) {
 		//Adicionando o valor na conta 
-		atendimentos.get(indice).getPrestServ(indice2).getProfissional().addFaturamento(atendimentos.get(indice).getPrestServ(indice2).getValor());
+		//atendimentos.get(indice).getPrestServ(indice2).getProfissional().addFaturamento(atendimentos.get(indice).getPrestServ(indice2).getValor());
+		atendimentos.get(indice).getProfissional(indice2).addFaturamento(atendimentos.get(indice).getValor(indice2));
 		System.out.println("Atendimento de " + atendimentos.get(indice).getCli() + " foi finalizado.");
 		//Removendo o atendimento do ArrayList
 		atendimentos.remove(indice);
