@@ -46,27 +46,48 @@ public class Atendimento {
 	}	
 	
 	//Métodos
-	//Adicionar produtos ao atendimento
+	
+	/**
+	 * Adicionar produtos ao atendimento
+	 * @param produto a ser adicionado
+	 */
 	public void addProduto(Produto prod) {
 		this.produtos.add(prod);
 		System.out.println("O produto \"" + prod.getNome() + "\" foi adicionado ao atendimento de " + this.cli.getNome());
 	}
 	
-	//Remover produtos do atendimento
+	/**
+	 * Remover produtos do atendimento
+	 * @param indice do Produto na ArrayList
+	 */
 	public void remProduto(int indice) {
 		System.out.println("O produto \"" + produtos.get(indice).getNome() + "\" foi removido ao atendimento de " + this.cli.getNome());
 		this.produtos.remove(indice);
 	}
-	
+	/**
+	 * Adição de serviço prestado
+	 * @param prestação de serviço a ser adicionada 
+	 */
 	public void addPrestServ(PrestServico prest_serv) {
 		this.prest_servs.add(prest_serv);
 		System.out.println("O serviço \"" + prest_serv.getServico().getNome() + "\" foi adicionado ao atendimento de " + this.cli.getNome());
 	}
-	
+	/**
+	 * Remoção do serviço prestado de sua ArrayList
+	 * @param indice da prestação de serviço na ArrayList
+	 */
 	public void remPrestServ(int indice) {
 		System.out.println("O serviço \"" + prest_servs.get(indice).getServico().getNome() + "\" foi removido ao atendimento de " + this.cli.getNome());
 		this.produtos.remove(indice);
 	}
-
+	
+	/**
+	 * Realizar pagamento no fechamento de atendimento
+	 * 
+	 */
+	public void addFaturPro(int indice, float valor) {
+		//Adicionar valor no faturamento do profissional
+		prest_servs.get(indice).getProfissional().addFaturamento(valor);
+	}
 	
 }

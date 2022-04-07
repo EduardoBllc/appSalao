@@ -52,14 +52,14 @@ public class Profissional extends Pessoa{
 		servicos[cod] = true;
 	}
 	
-	public void imprimeServicos() {
-		System.out.println("Serviços prestados:");
-		//Imprimindo cada serviço usando o indice da bool array na array de nomes
-		for(int i = 0; i < servicos.length; i ++) {
-			if(servicos[i]) {
-				System.out.println(servicosNome[i] );
-			}
-		}
-	}
+//	public void imprimeServicos() {
+//		System.out.println("Serviços prestados:");
+//		//Imprimindo cada serviço usando o indice da bool array na array de nomes
+//		for(int i = 0; i < servicos.length; i ++) {
+//			if(servicos[i]) {
+//				System.out.println(servicosNome[i] );
+//			}
+//		}
+//	}
 }
 

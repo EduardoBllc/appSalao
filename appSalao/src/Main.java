@@ -106,11 +106,14 @@ public class Main {
 		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
 	}
 
-	//Método para fechar atendimento
+	/**Método para fechar atendimento
+	 * 
+	 * @param indice do atendimento na ArrayList atendimentos
+	 * @param indice2 do 
+	 */
 	public static void fecharAtendimento(int indice, int indice2) {
 		//Adicionando o valor na conta 
-		//atendimentos.get(indice).getPrestServ(indice2).getProfissional().addFaturamento(atendimentos.get(indice).getPrestServ(indice2).getValor());
-		atendimentos.get(indice).getProfissional(indice2).addFaturamento(atendimentos.get(indice).getValor(indice2));
+		atendimentos.get(indice).addFaturPro(indice2,atendimentos.get(indice).getValor(indice2));
 		System.out.println("Atendimento de " + atendimentos.get(indice).getCli() + " foi finalizado.");
 		//Removendo o atendimento do ArrayList
 		atendimentos.remove(indice);
