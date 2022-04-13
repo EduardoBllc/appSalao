@@ -21,6 +21,9 @@ public class Atendimento {
 	public PrestServico getPrestServ(int indice) {
 		return this.prest_servs.get(indice);
 	}
+	public ArrayList<PrestServico> getAllPrestServ() {
+		return this.prest_servs;
+	}
 	public Produto getProduto(int indice) {
 		return this.produtos.get(indice);
 	}
@@ -64,14 +67,7 @@ public class Atendimento {
 		System.out.println("O produto \"" + produtos.get(indice).getNome() + "\" foi removido ao atendimento de " + this.cli.getNome());
 		this.produtos.remove(indice);
 	}
-	/**
-	 * Adição de serviço prestado
-	 * @param prestação de serviço a ser adicionada 
-	 */
-	public void addPrestServ(PrestServico prest_serv) {
-		this.prest_servs.add(prest_serv);
-		System.out.println("O serviço \"" + prest_serv.getServico().getNome() + "\" foi adicionado ao atendimento de " + this.cli.getNome());
-	}
+		
 	/**
 	 * Remoção do serviço prestado de sua ArrayList
 	 * @param indice da prestação de serviço na ArrayList

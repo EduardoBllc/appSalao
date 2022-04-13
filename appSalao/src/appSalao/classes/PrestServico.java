@@ -5,8 +5,12 @@ public class PrestServico {
 	Profissional pro;
 	float valor;
 	
-	//Construtor
-	public PrestServico(Servico serv, Profissional pro) {
+	/**
+	 * Construtor de prestação de serviço
+	 * @param serviço
+	 * @param profissional
+	 */
+	public PrestServico(Profissional pro, Servico serv) {
 		this.serv = serv;
 		this.pro = pro;
 		

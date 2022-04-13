@@ -15,6 +15,8 @@ public class Main {
 	static ArrayList<Profissional> profissionais = new ArrayList<>();
 	static ArrayList<Servico> servicos = new ArrayList<>();
 	
+	static Scanner teclado = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 			
 		//Criando os profissionais 
@@ -36,57 +38,98 @@ public class Main {
 		
 		//Adicionando o novo atendimento à lista de atendimentos
 		novoAtendimento();
+
+		//Adicionando outro serviço
+		addPrestServ(0);
 		
 		//Printando o atendimento
 		printAtendimento(0,0);
 		System.out.println("");
 		
-		fecharAtendimento(0,0);
+		fecharAtendimento(0);
 		System.out.println("Os ganhos de " + profissionais.get(0) + " são R$" + profissionais.get(0).getGanhos()) ;
+		
 	}
-	
 	
 	//Métodos
 	
-	//Método criação atendimento
+	/**
+	 * Método criação atendimento
+	 */
 	public static void novoAtendimento() {
-		
-		Scanner teclado = new Scanner(System.in);
 		
 		//Criando o cliente		
 		System.out.println("Digite o nome da Cliente: ");
 		String nome = teclado.next();	
 		Cliente cli = new Cliente(nome);
 		
-		//Definindo o serviço
-		System.out.println("Defina o serviço: ");
-		int indice = teclado.nextInt();
-		Servico serv = servicos.get(indice);
+		//Definindo profissional
+		Profissional pro = defProfissional();
 		
-		//Definindo o profissional
-		System.out.println("Defina o profissinal");
-		indice = teclado.nextInt();
-		Profissional  pro = profissionais.get(indice);
+		//Definindo serviço
+		Servico serv = defServico();
 		
 		//Declarando uma prestação de serviço
-		PrestServico prest_serv = new PrestServico(serv,pro);
+		PrestServico prest_serv = new PrestServico(pro,serv);
 		
 		//Criando o atendimento com o cliente a prestação de serviço no arraylist
 		Atendimento atend = new Atendimento(cli,prest_serv);	
 		atendimentos.add(atend);
-		
-		teclado.close();
 
 	}
 	
-	//Criação de profissionais na arraylist
+	/**
+	 * Definição de serviço
+	 * @return serviço
+	 */
+	public static Servico defServico() {
+
+		System.out.println("Defina o serviço: ");
+		int indice = teclado.nextInt();
+		Servico serv = servicos.get(indice);
+		
+		return serv;
+	}
+	
+	/**
+	 * Definição de profissional
+	 * @return profissional
+	 */
+	public static Profissional defProfissional() {
+		
+		System.out.println("Defina o profissinal");
+		int indice = teclado.nextInt();
+		Profissional pro = profissionais.get(indice);
+		
+		return pro;
+	}
+	
+	/**
+	 * Adição de serviço prestado no atendimento
+	 * @param indice
+	 */
+	public static void addPrestServ(int indice) {
+		
+		PrestServico pserv = new PrestServico(defProfissional(),defServico());
+		atendimentos.get(indice).getAllPrestServ().add(pserv);
+		System.out.println("O serviço \"" + pserv.getServico().getNome() + "\" foi adicionado ao atendimento de " + atendimentos.get(indice).getNomeCliente());
+	}
+	
+	/** 
+	 * Criação de profissionais na arraylist
+	 * @param nome
+	 * @param div de faturamento
+	 */
 	public static void novoProfissional(String nome, int div) {
 		//Criando um profissional e adicionando na arraylist
 		Profissional p = new Profissional(nome, div);
 		profissionais.add(p);
 	}
 
-	//Criação de Serviço na arraylist
+	/**
+	 * Criação de Serviço na arraylist
+	 * @param nome
+	 */
 	public static void novoServico(String nome) {
 		//Criando o serviço e adicionando na arraylist
 		Servico s = new Servico(nome);
@@ -97,23 +140,35 @@ public class Main {
 		Servico s = new Servico(nome, valor);
 		servicos.add(s);
 	}
-		
-	//Método para imprimir atendimento
+			
+	/**
+	 * Método para imprimir atendimento
+	 * @param indice
+	 * @param indice2
+	 */
 	public static void printAtendimento(int indice, int indice2) {
 
-		System.out.println("Cliente: "  + atendimentos.get(indice).getCli().getNome());
-		System.out.println("Profissional: " + atendimentos.get(indice).getPrestServ(indice2).getProfissional().getNome());
-		System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(indice2).getServico().getNome());
+		System.out.println("Cliente: "  + atendimentos.get(indice).getCli().getNome() + "\n");
+		int i;
+		for(i = 0; i < atendimentos.get(indice).getAllPrestServ().size(); i ++) {
+			System.out.println("Serviço " + (i +1) + ":");
+			System.out.println("Serviço: " + atendimentos.get(indice).getPrestServ(i).getServico().getNome());
+			System.out.println("Profissional: " + atendimentos.get(indice).getPrestServ(i).getProfissional().getNome() + "\n");
+		}
 	}
 
-	/**Método para fechar atendimento
-	 * 
+	/**
+	 * Método para fechar atendimento
 	 * @param indice do atendimento na ArrayList atendimentos
-	 * @param indice2 do 
 	 */
-	public static void fecharAtendimento(int indice, int indice2) {
+	public static void fecharAtendimento(int indice) {
+		int i;
 		//Adicionando o valor na conta 
-		atendimentos.get(indice).addFaturPro(indice2,atendimentos.get(indice).getValor(indice2));
+		for(i = 0; i < (atendimentos.get(indice).getAllPrestServ().size() - 1); i++);
+		{
+			atendimentos.get(indice).addFaturPro(i,atendimentos.get(indice).getValor(i));
+			faturamento += atendimentos.get(indice).getValor(i);
+		}
 		System.out.println("Atendimento de " + atendimentos.get(indice).getCli() + " foi finalizado.");
 		//Removendo o atendimento do ArrayList
 		atendimentos.remove(indice);
