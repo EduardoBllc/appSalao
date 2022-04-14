@@ -4,23 +4,23 @@ public abstract class Pessoa {
 	private String nome;
 
 //Construtor
-public Pessoa(String nome) {
-	this.nome = nome;
+	public Pessoa(String nome) {
+		this.nome = nome;
 	}
 
 //Getters
-public String getNome() {
-	return this.nome;
-}
+	public String getNome() {
+		return this.nome;
+	}
 
 //Setters
-public void setNome(String nome) {
-	this.nome = nome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 //Métodos
-public String toString() {
-	return this.nome;
+	public String toString() {
+		return this.nome;
 	}
 
 }

@@ -7,8 +7,8 @@ public class PrestServico {
 	
 	/**
 	 * Construtor de prestação de serviço
-	 * @param serviço
 	 * @param profissional
+	 * @param serviço
 	 */
 	public PrestServico(Profissional pro, Servico serv) {
 		this.serv = serv;

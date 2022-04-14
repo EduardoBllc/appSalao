@@ -15,7 +15,7 @@ public class Atendimento {
 	}
 	
 	//Getters
-	public Cliente getCli() {
+	public Cliente getCliente() {
 		return this.cli;
 	}
 	public PrestServico getPrestServ(int indice) {
@@ -26,12 +26,6 @@ public class Atendimento {
 	}
 	public Produto getProduto(int indice) {
 		return this.produtos.get(indice);
-	}
-	public String getNomeCliente() {
-		return this.cli.getNome();
-	}
-	public String getNomeProfissional(int indice) {
-		return this.prest_servs.get(indice).pro.getNome();
 	}
 	public float getValor(int indice) {
 		return this.prest_servs.get(indice).getValor();

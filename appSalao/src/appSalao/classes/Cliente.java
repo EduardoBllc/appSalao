@@ -4,6 +4,11 @@ public class Cliente extends Pessoa{
 	private int telefone;
 	private int cpf;
 	
+	//Construtor
+	public Cliente(String nome) {
+		super(nome);
+	}
+	
 	//Getters
 	public int getTelefone() {
 		return this.telefone;
@@ -20,8 +25,5 @@ public class Cliente extends Pessoa{
 		this.cpf = cpf;
 	}
 	
-	//Construtor
-	public Cliente(String nome) {
-		super(nome);
-	}
+	
 }
